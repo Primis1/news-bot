@@ -1,0 +1,2 @@
+env: "local" # Окружение - local, dev или prod
+storage_path: "./storage/storage.db" # файл, в котором будет храниться наша БД

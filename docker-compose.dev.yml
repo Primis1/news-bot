@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRESS_USER: postgress
       POSTGRESS_PASSWORD: postgress
-      POSTGRESS_DB: news_bot
+      POSTGRESS_DB: news_feed
       PGDATA: /var/lib/postgresql/data/
     ports:
       - 5432:5432
