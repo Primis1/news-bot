@@ -11,7 +11,10 @@ type Config struct {
 }
 
 func MustLoad() *Config {
-	os.Setenv("CONFIG_PATH", "exc/internal/local.yaml")
+	e := os.Setenv("CONFIG_PATH", "exc/internal/local.yaml")
+	if e != nil {
+		panic("can not set ENV variable")
+	}
 
 	config := os.Getenv("CONFIG_PATH")
 	if config == "" {
