@@ -1,36 +1,7 @@
 package config
 
-import (
-	"github.com/ilyakaznacheev/cleanenv"
-	"log"
-	"os"
-)
+import "os"
 
-type Config struct {
-	Env string `yaml:"env" env-default:"development"`
-}
-
-func MustLoad() *Config {
-	e := os.Setenv("CONFIG_PATH", "exc/internal/local.yaml")
-	if e != nil {
-		panic("can not set ENV variable")
-	}
-
-	config := os.Getenv("CONFIG_PATH")
-	if config == "" {
-		log.Fatal("CONFIG_PATH environment variable is not set")
-	}
-
-	if _, err := os.Stat(config); err != nil {
-		log.Fatalf("error opening config file: %s", err)
-	}
-
-	var cfg Config
-
-	err := cleanenv.ReadConfig(config, &cfg)
-	if err != nil {
-		log.Fatalf("error reading config file: %s", err)
-	}
-
-	return &cfg
+func SetKeyENV() {
+	os.Setenv("KEY_WORD", "cmd")
 }

@@ -1,14 +1,11 @@
 package main
 
 import (
-	"exc/internal/config"
+	"news-bot/internal/config"
 )
 
 func init() {
-	//os.Setenv("CONFIG_PATH", "./internal/config/local.yaml ./your-app")
-
-
-	config.MustLoad()
+	config.SetKeyENV()
 }
 func main() {
 }
